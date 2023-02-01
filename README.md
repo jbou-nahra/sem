@@ -1,2 +1,4 @@
 Hey, readme file here. 
-Testing Continuous Integration.
+Adding badge.
+
+![workflow](https://github.com/<UserName>/<RepositoryName>/actions/workflows/main.yml/badge.svg)

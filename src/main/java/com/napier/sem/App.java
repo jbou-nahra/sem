@@ -77,9 +77,20 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT emp_no, first_name, last_name "
+                    "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary, titles.title, departments.dept_name "
                             + "FROM employees "
-                            + "WHERE emp_no = " + ID;
+                            + "JOIN salaries "
+                            + "ON employees.emp_no = salaries.emp_no "
+                            + "Join titles "
+                            + "ON employees.emp_no = titles.emp_no "
+                            + "Join dept_emp "
+                            + "ON employees.emp_no = dept_emp.emp_no "
+                            + "Join departments "
+                            + "ON dept_emp.dept_no = departments.dept_no "
+                            + "Join dept_manger "
+                            + "ON departments.dept_no"
+                            + "WHERE employees.emp_no = " + ID
+                            + " AND salaries.to_date = '9999-01-01' ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -90,6 +101,9 @@ public class App
                 emp.emp_no = rset.getInt("emp_no");
                 emp.first_name = rset.getString("first_name");
                 emp.last_name = rset.getString("last_name");
+                emp.salary = rset.getInt("salary");
+                emp.title = rset.getString("title");
+                emp.dept_name = rset.getString("dept_name");
                 return emp;
             }
             else

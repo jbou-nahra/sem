@@ -149,7 +149,7 @@ public class App {
      *
      * @param employees The list of employees to print.
      */
-    public void printSalaries(ArrayList<Employee> employees)
+    public static void printSalaries(ArrayList<Employee> employees)
     {
         // Check employees is not null
         if (employees == null)
@@ -171,7 +171,7 @@ public class App {
         }
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         // Create new Application
         App a = new App();
 

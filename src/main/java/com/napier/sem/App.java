@@ -75,6 +75,7 @@ public class App {
                             + "WHERE employees.emp_no = " + ID
                             + " AND salaries.to_date = '9999-01-01' ";
             // Execute SQL statement
+            // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
             // Check one is returned
@@ -183,11 +184,14 @@ public class App {
         }
 
         // Extract employee salary information
-        ArrayList<Employee> employees = a.getAllSalaries();
+        //ArrayList<Employee> employees = a.getAllSalaries();
 
         // Test the size of the returned data - should be 240124
-        System.out.println(employees.size());
-        printSalaries(employees);
+        //System.out.println(employees.size());
+        //printSalaries(employees);
+
+        Employee emp = a.getEmployee(255530);
+        a.displayEmployee(emp);
 
 
         // Disconnect from database

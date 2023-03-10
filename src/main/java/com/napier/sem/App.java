@@ -54,43 +54,34 @@ public class App {
         }
     }
 
-    public Employee getEmployee(int ID) {
-        try {
+    public Employee getEmployee(int ID)
+    {
+        try
+        {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary, titles.title, departments.dept_name "
+                    "SELECT emp_no, first_name, last_name "
                             + "FROM employees "
-                            + "JOIN salaries "
-                            + "ON employees.emp_no = salaries.emp_no "
-                            + "Join titles "
-                            + "ON employees.emp_no = titles.emp_no "
-                            + "Join dept_emp "
-                            + "ON employees.emp_no = dept_emp.emp_no "
-                            + "Join departments "
-                            + "ON dept_emp.dept_no = departments.dept_no "
-                            + "Join dept_manger "
-                            + "ON departments.dept_no"
-                            + "WHERE employees.emp_no = " + ID
-                            + " AND salaries.to_date = '9999-01-01' ";
-            // Execute SQL statement
+                            + "WHERE emp_no = " + ID;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
             // Check one is returned
-            if (rset.next()) {
+            if (rset.next())
+            {
                 Employee emp = new Employee();
                 emp.emp_no = rset.getInt("emp_no");
                 emp.first_name = rset.getString("first_name");
                 emp.last_name = rset.getString("last_name");
-                emp.salary = rset.getInt("salary");
-                emp.title = rset.getString("title");
-                //emp.dept = rset.getString("dept_name");
                 return emp;
-            } else
+            }
+            else
                 return null;
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             System.out.println(e.getMessage());
             System.out.println("Failed to get employee details");
             return null;

@@ -1,5 +1,6 @@
 Hey, readme file here. 
 Adding badge.
+Adding a change for test.
 
 Master status: ![workflow](https://github.com/jbou-nahra/sem/actions/workflows/main.yml/badge.svg)
 

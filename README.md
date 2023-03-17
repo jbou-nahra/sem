@@ -1,3 +1,5 @@
+Testing permission changes.
+
 Master status: ![workflow](https://github.com/jbou-nahra/sem/actions/workflows/main.yml/badge.svg)
 
 Develop status: ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/jbou-nahra/sem/main.yml)
